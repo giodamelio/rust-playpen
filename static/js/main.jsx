@@ -1,16 +1,10 @@
 var React = require("react");
 
-var {Button} = require("react-bootstrap");
-
-var HelloWorld = React.createClass({
-    render: function() {
-        return <Button>Hello World</Button>;
-    }
-});
+var App = require("./app.jsx");
 
 document.addEventListener("DOMContentLoaded", function(event) { 
     React.render(
-        <HelloWorld />,
+        <App />,
         document.body
     );
 });
