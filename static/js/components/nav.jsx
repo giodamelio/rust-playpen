@@ -10,6 +10,7 @@ var {
 } = require("react-bootstrap");
 
 var Store = require("../store");
+var Actions = require("../actions");
 
 module.exports = React.createClass({
     mixins: [Store.mixin],
@@ -18,11 +19,17 @@ module.exports = React.createClass({
             <Navbar brand="Rust Playpen" inverse>
                 <Nav right>
                     <ButtonGroup>
-                        <Button className="navbar-btn">Run</Button>
-                        <Button className="navbar-btn">Format</Button>
-                        <Button className="navbar-btn">Assembly</Button>
-                        <Button className="navbar-btn">LLVM IR</Button>
-                        <Button className="navbar-btn">Share</Button>
+                        <Button
+                            onClick={Actions.run}
+                            className="navbar-btn">Run</Button>
+                        <Button
+                            className="navbar-btn">Format</Button>
+                        <Button
+                            className="navbar-btn">Assembly</Button>
+                        <Button
+                            className="navbar-btn">LLVM IR</Button>
+                        <Button
+                            className="navbar-btn">Share</Button>
                         <DropdownButton
                             className="navbar-btn"
                             title="Settings">
