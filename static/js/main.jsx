@@ -1,8 +1,10 @@
 var React = require("react");
 
+var {Button} = require("react-bootstrap");
+
 var HelloWorld = React.createClass({
     render: function() {
-        return <h1>Hello World</h1>;
+        return <Button>Hello World</Button>;
     }
 });
 
