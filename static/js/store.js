@@ -12,4 +12,4 @@ var store = new baobab({
 });
 
 module.exports = store;
-
+window.store = store;

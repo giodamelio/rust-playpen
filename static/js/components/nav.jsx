@@ -3,14 +3,17 @@ var React = require("react");
 var {
     Navbar,
     Nav,
-    DropdownButton,
     MenuItem,
     ButtonGroup,
-    Button
+    Button,
+    Glyphicon,
+    ModalTrigger
 } = require("react-bootstrap");
 
 var Store = require("../store");
 var Actions = require("../actions");
+
+var SettingsModal = require("./settingsModal.jsx");
 
 module.exports = React.createClass({
     mixins: [Store.mixin],
@@ -30,10 +33,11 @@ module.exports = React.createClass({
                             className="navbar-btn">LLVM IR</Button>
                         <Button
                             className="navbar-btn">Share</Button>
-                        <DropdownButton
-                            className="navbar-btn"
-                            title="Settings">
-                        </DropdownButton>
+                        <ModalTrigger modal={<SettingsModal />}>
+                            <Button className="navbar-btn">
+                                <Glyphicon glyph="cog" /> Settings
+                            </Button>
+                        </ModalTrigger>
                     </ButtonGroup>
                 </Nav>
             </Navbar>
