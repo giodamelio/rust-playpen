@@ -17,6 +17,11 @@ module.exports = {
                 test: /\.jsx$/,
                 loaders: ["jsx", "babel"],
                 exclude: /node_modules/
+            },
+            // Load json
+            { 
+                test: /\.json$/,
+                loaders: ["json"]
             }
         ]
     }

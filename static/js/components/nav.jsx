@@ -2,7 +2,14 @@ var React = require("react");
 
 var {Navbar, Nav, NavItem, DropdownButton, MenuItem} = require("react-bootstrap");
 
+var Store = require("../store");
+
 module.exports = React.createClass({
+    mixins: [Store.mixin],
+    cursor: "users",
+    renderUsername(username, index) {
+        return <MenuItem eventKey={index}>{username}</MenuItem>;
+    },
     render() {
         return (
             <Navbar brand="Rust Playpen" inverse>
@@ -10,11 +17,7 @@ module.exports = React.createClass({
                     <NavItem eventKey={1} href="#">Link</NavItem>
                     <NavItem eventKey={2} href="#">Link</NavItem>
                     <DropdownButton eventKey={3} title="Dropdown">
-                        <MenuItem eventKey="1">Action</MenuItem>
-                        <MenuItem eventKey="2">Another action</MenuItem>
-                        <MenuItem eventKey="3">Something else here</MenuItem>
-                        <MenuItem divider />
-                        <MenuItem eventKey="4">Separated link</MenuItem>
+                        {this.cursor.get().map(this.renderUsername)}
                     </DropdownButton>
                 </Nav>
             </Navbar>
